@@ -14,8 +14,13 @@ const soundsData = {
   win: './resources/sound/win.mp3'
 }
 const loadedSoundsMiddleware = soundsMiddleware(soundsData)
-const logger = createLogger()
-const store = createStore(reducer, applyMiddleware(logger, thunk, loadedSoundsMiddleware))
+let middlewares = [thunk, loadedSoundsMiddleware]
+if (process.env.NODE_ENV === 'development') {
+  // Log redux actions during local development
+  const logger = createLogger()
+  middlewares = [logger, ...middlewares]
+}
+const store = createStore(reducer, applyMiddleware(...middlewares))
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
