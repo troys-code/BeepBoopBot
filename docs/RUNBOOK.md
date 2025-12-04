@@ -12,12 +12,15 @@ npm install --legacy-peer-deps
 
 (this project was created before peer dependencies were enforced)
 
-### Building
+### Iterating
 
-```sh
-# Build client and output to ./webpage/
-npm run build
-```
+1. Rebuild styles as they change:
+  
+    `npm run watch:styles`
+1. Rebuild code and serve all static files:
+    
+    `npm run dev-wp`
+1. Open [localhost:8080](http://localhost:8080) in your browser
 
 ### Quality checks
 
@@ -47,7 +50,7 @@ The [GitHub workflow](../.github/workflows/deploy.cloudflare.yml) will automatic
 
 There is a regular check that ensures the site is showing an element rendered by react.
 
-It also ensures the static files are cached in an AU/NZ region.
+As a side effect, it ensures the static files are cached in an AU/NZ region.
 
 https://oceania.grafana.net/a/grafana-synthetic-monitoring-app/checks
 
