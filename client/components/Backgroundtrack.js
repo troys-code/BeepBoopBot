@@ -1,7 +1,21 @@
 import React, { Component } from 'react'
+// Must run setup before using react-sound
+soundManager.setup({
+  // ignoreMobileRestrictions: true, // for playing multiple tracks at once (not needed)
+  preferFlash: false,
+  debugMode: false, // disable spammy logs
+});
 import Sound from 'react-sound'
 import cookie from 'react-cookie'
 import songs from '../sound'
+
+const volumeForTheme = {
+  0: 40,
+  1: 20,
+  2: 30,
+  3: 20,
+  4: 20
+}
 
 export default class Backgroundtrack extends Component {
   constructor (props) {
@@ -76,7 +90,7 @@ export default class Backgroundtrack extends Component {
         url={this.state.currentSong.url}
         playStatus={this.state.playStatus}
         playFromPosition={this.state.position}
-        volume={25}
+        volume={volumeForTheme[this.state.theme]}
         onFinishedPlaying={() => this.setState({ playStatus: Sound.status.PLAYING })}
         loop
       />
