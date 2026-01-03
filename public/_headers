@@ -1,0 +1,17 @@
+# Prevent other origins from iframeing our app
+/*.html
+  X-Frame-Options: DENY
+
+# Cache hashed asset pathsand sounds (not styles) for ~72 hours
+/bundle.*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache images and sounds (not styles) for ~72 hours
+/resources/sound/*
+  Cache-Control: public, max-age=260000, must-revalidate
+
+/resources/images/*
+  Cache-Control: public, max-age=260000, must-revalidate
+
+/resources/styles/*
+  Cache-Control: public, max-age=36000, must-revalidate
