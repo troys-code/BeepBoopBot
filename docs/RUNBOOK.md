@@ -22,6 +22,12 @@ npm install --legacy-peer-deps
     `npm start`
 1. Open [localhost:8080](http://localhost:8080) in your browser
 
+#### Bundler
+
+Webpack v5 - slow and old, but it works
+Vite - good
+Parcel - fails to load images from css urls, fails to build JS at all
+
 ### Quality checks
 
 Run these before pushing to main

@@ -6,13 +6,14 @@
     "node": ">= 22"
   },
   "scripts": {
-    "start": "cd client && NODE_ENV=development webpack-dev-server --hot --inline",
-    "build": "npm run build:js && npm run build:styles",
+    "start": "NODE_ENV=production vite preview",
+    "dev": "NODE_ENV=development vite",
+    "build": "npm run build:styles && vite build",
     "build:styles": "sass --load-path scss client/scss/main.scss public/resources/styles/style.css",
     "watch:styles": "nodemon -e scss -x \"npm run build:styles\"",
-    "build:js": "cd client && webpack --progress --profile --colors",
-    "watch:js": "cd client && webpack --progress --profile --colors --watch",
-    "postbuild": "mkdir -p webpage/ && cp -r public/* webpage/ && node postbuild.mjs",
+    "build:js": "cd client && webpack --progress --profile",
+    "watch:js": "cd client && webpack --progress --profile --watch",
+    "legacy-postbuild": "mkdir -p webpage/ && cp -r public/* webpage/ && node postbuild.mjs",
     "lint": "npx standard ./client",
     "lint:fix": "npx standard --fix ./client",
     "test": "babel-tape-runner client/test/*.js | tap-spec"
@@ -33,17 +34,14 @@
   },
   "devDependencies": {
     "@types/node": "^25.0.3",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-0": "^6.5.0",
+    "@vitejs/plugin-react": "^5.1.2",
     "babel-tape-runner": "^2.0.1",
     "deep-freeze": "0.0.1",
+    "nodemon": "^3.1.11",
     "redux-logger": "^2.6.1",
     "sass-embedded": "^1.87.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.0",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "vite": "^7.3.0"
   }
 }
