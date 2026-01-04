@@ -11,9 +11,6 @@
     "build": "npm run build:styles && vite build",
     "build:styles": "sass --load-path scss client/scss/main.scss public/resources/styles/style.css",
     "watch:styles": "nodemon -e scss -x \"npm run build:styles\"",
-    "build:js": "cd client && webpack --progress --profile",
-    "watch:js": "cd client && webpack --progress --profile --watch",
-    "legacy-postbuild": "mkdir -p webpage/ && cp -r public/* webpage/ && node postbuild.mjs",
     "lint": "npx standard ./client",
     "lint:fix": "npx standard --fix ./client",
     "test": "babel-tape-runner client/test/*.js | tap-spec"
