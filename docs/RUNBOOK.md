@@ -19,7 +19,7 @@ npm install --legacy-peer-deps
     `npm run watch:styles`
 1. Rebuild code and serve all static files:
     
-    `npm run dev-wp`
+    `npm start`
 1. Open [localhost:8080](http://localhost:8080) in your browser
 
 ### Quality checks

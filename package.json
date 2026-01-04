@@ -6,9 +6,7 @@
     "node": ">= 22"
   },
   "scripts": {
-    "start": "node server/index",
-    "dev-nm": "nodemon server/index",
-    "dev-wp": "cd client && NODE_ENV=development webpack-dev-server --hot --inline",
+    "start": "cd client && NODE_ENV=development webpack-dev-server --hot --inline",
     "build": "npm run build:js && npm run build:styles",
     "build:styles": "sass --load-path scss client/scss/main.scss public/resources/styles/style.css",
     "watch:styles": "nodemon -e scss -x \"npm run build:styles\"",
@@ -42,9 +40,6 @@
     "babel-tape-runner": "^2.0.1",
     "colors": "^1.1.2",
     "deep-freeze": "0.0.1",
-    "express": "^4.14.0",
-    "nodemon": "^1.10.0",
-    "react-addons-test-utils": "^15.2.1",
     "redux-logger": "^2.6.1",
     "sass-embedded": "^1.87.0",
     "tap-spec": "^4.1.1",
