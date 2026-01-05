@@ -1,5 +1,7 @@
+@use './zindex';
+
 .robot-container {
-  z-index: 100;
+  z-index: zindex.$z-robot;
   position: absolute;
 
   display: flex;
@@ -42,7 +44,7 @@
 .b3-robot {
   width: 100%;
   height: 100%;
-  z-index: 100;
+  z-index: zindex.$z-robot;
   overflow: visible;
 
 
@@ -56,7 +58,7 @@
   width: 90%;
   height: 90%;
   border-radius: 50%;
-  z-index: 5;
+  z-index: zindex.$z-robot-shadow;
   translate: 0% 25%;
   overflow: visible;
 
@@ -78,8 +80,5 @@
   @media screen and (max-width: 850px) {
     width: 40%;
     height: 40%;
-    border-radius: 50%;
-    translate: 0% 25%;
-    z-index: 5;
   }
 }
