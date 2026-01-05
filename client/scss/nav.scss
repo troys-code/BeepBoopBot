@@ -1,4 +1,5 @@
 @use './colors';
+@use './zindex';
 
 .navigation {
   width: 100%;
@@ -37,7 +38,7 @@
     }
 
     .logo-container {
-      z-index: 1;
+      z-index: zindex.$z-nav-logo;
       height: 120%;
       width: 90%;
       padding: 2%;
@@ -318,5 +319,5 @@
 
 /* Level picker dialog must be above robot */
 .skylight-wrapper {
-  z-index: 200;
+  z-index: zindex.$z-modal;
 }

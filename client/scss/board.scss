@@ -1,4 +1,5 @@
 @use './colors';
+@use './zindex';
 
 #board {
 	width: 70%;
@@ -92,6 +93,7 @@
 	}
 
 	.tile {
+		z-index: zindex.$z-tile;
 		display: flex;
 		justify-content: center;
 		align-content: center;
@@ -117,22 +119,27 @@
 	}
 
 	.clear {
-		background: rgba(0,0,0,0.0);
+		background: transparent;
 		padding-bottom: 1%;
-		border-bottom: 2vh solid rgba(0,0,0,0.0);
+		border-bottom: 2vh solid transparent;
+	}
+	
+	/* Have to put the black hole zindex on the tile
+	 * to make it render below surrounding tiles */
+	.clear:has(> .hole) {
+		z-index: zindex.$z-black-hole;
 	}
 
 	.hole {
 		width: 105%;
-		-webkit-animation: spin 0.5s infinite linear;
+		animation: spin 1.2s infinite linear;
 	}
-	@-webkit-keyframes spin {
+	@keyframes spin {
 		0% {
-			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
 		}
-
 		100% {
-			-webkit-transform: rotate(360deg);
+			transform: rotate(360deg);
 		}
 	}
 
@@ -188,7 +195,8 @@
 	}
 
 	.box-tile {
-		width: 93%;
+		z-index: zindex.$z-box;
+		width: 90%;
 		margin-bottom: 7%;
 	}
 
@@ -204,16 +212,13 @@
 		margin-bottom: 10%;
 		top: 0;
 		position: relative;
-	    -webkit-animation-name: fadeOutUp; /* Chrome, Safari, Opera */
-	    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
-	    animation-name: fadeOutUp;;
-	    animation-duration: 4s;
+		animation-name: fadeOutUp;
+		animation-duration: 4s;
 
 		@keyframes fadeOutUp {
 		  from {
 		    opacity: 1;
 		  }
-
 		  to {
 		    opacity: 0;
 		    transform: translate3d(0, -100%, 0);
