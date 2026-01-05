@@ -99,10 +99,6 @@ $actionButtonElevation: 7px;
       width: 58%;
       border-top: none;
     }
-
-    @media screen and (max-width: 320px) {
-      height: 29%;
-    }
   }
 
   .action-button-container {
@@ -137,20 +133,10 @@ $actionButtonElevation: 7px;
       background: colors.$white-dark;
       border-bottom: $actionButtonElevation solid #a4a4a4;
 
-      @media screen and (max-width: 1400px) {
-        height: 50%;
-        width: 50%;
-      }
-
       @media screen and (max-width: 1200px) {
-        height: 21%;
-        width: 79%;
-      }
-
-      @media screen and (max-width: 1000px) {
-        height: 15%;
-        width: 79%;
-        margin: -78px -8px 6px 9px;
+        margin: 9px 0 6px 9px;
+        height: 37px;
+        width: 70px;
       }
 
       @media screen and (max-width: 850px) {
