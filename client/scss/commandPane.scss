@@ -3,7 +3,7 @@
 $actionButtonElevation: 7px;
 
 .command-pane {
-  display:flex;
+  display: flex;
   box-sizing: border-box;
   width: 30%;
   height: 90%;
@@ -23,63 +23,64 @@ $actionButtonElevation: 7px;
   }
 
   .command-queue {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      overflow-y: scroll;
-
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    overflow-y: scroll;
   }
 
   .command-queue::-webkit-scrollbar-track {
-      border-radius: 10px;
-      background-color: rgba(0,0,0,0.0);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.0);
   }
 
   .command-queue::-webkit-scrollbar {
-      width: 12px;
-      background-color: rgba(0,0,0,0.0);
+    width: 12px;
+    background-color: rgba(0, 0, 0, 0.0);
   }
 
   .command-queue::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background-color: colors.$blue-darkest;
+    border-radius: 10px;
+    background-color: colors.$blue-darkest;
   }
+
   .moves-left {
-      line-height: 100%;
-      font-size: 21px;
-      color: white;
+    line-height: 100%;
+    font-size: 21px;
+    color: white;
 
-      @media screen and (max-width: 850px){
-          line-height: 0%;
-      }
+    @media screen and (max-width: 850px) {
+      line-height: 0%;
+    }
   }
-  .command-container {
-      height: 28%;
-      width: 80%;
-      display:flex;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-content: flex-start;
-      align-items: flex-start;
-      border-left: 7px solid colors.$blue-darkest;
-      border-top: 7px solid colors.$blue-darkest;
-      background: colors.$blue-darker;
-      border-radius: 10px;
-      overflow-y: scroll;
 
-      @media screen and (max-width: 850px) {
-          height: 20%;
-          width: 93%;
-      }
+  .command-container {
+    height: 28%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    border-left: 7px solid colors.$blue-darkest;
+    border-top: 7px solid colors.$blue-darkest;
+    background: colors.$blue-darker;
+    border-radius: 10px;
+    overflow-y: scroll;
+
+    @media screen and (max-width: 850px) {
+      height: 20%;
+      width: 93%;
+    }
   }
 
   .runButtons-container {
     height: 30%;
     width: 80%;
-    display:flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
@@ -103,22 +104,21 @@ $actionButtonElevation: 7px;
     }
   }
 
-
   .moves-left {
     line-height: 100%;
     font-size: 21px;
     color: white;
     text-shadow: 0px -2px rgba(0, 0, 0, 0.2);
 
-    @media screen and (max-width: 850px){
-        line-height: 0%;
+    @media screen and (max-width: 850px) {
+      line-height: 0%;
     }
   }
 
   .action-button-container {
     height: 20%;
     width: 80%;
-    display:flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
@@ -184,15 +184,16 @@ $actionButtonElevation: 7px;
       background: colors.$orange;
       border-bottom: $actionButtonElevation solid colors.$orange-dark;
     }
-    .moves-left {
-        line-height: 100%;
-        font-size: 21px;
-        color: white;
-        text-shadow: 0px -2px rgba(0, 0, 0, 0.2);
 
-        @media screen and (max-width: 850px){
-            line-height: 0%;
-        }
+    .moves-left {
+      line-height: 100%;
+      font-size: 21px;
+      color: white;
+      text-shadow: 0px -2px rgba(0, 0, 0, 0.2);
+
+      @media screen and (max-width: 850px) {
+        line-height: 0%;
+      }
     }
 
     .action-rotate:hover {
@@ -216,8 +217,8 @@ $actionButtonElevation: 7px;
     }
 
     .action-button:active {
-      transform: translate(0px,$actionButtonElevation);
-      -webkit-transform: translate(0px,$actionButtonElevation);
+      transform: translate(0px, $actionButtonElevation);
+      -webkit-transform: translate(0px, $actionButtonElevation);
       border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     }
   }
