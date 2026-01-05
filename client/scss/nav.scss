@@ -78,14 +78,42 @@
     display: flex;
     flex-wrap: nowrap;
 
-    @media screen and (max-width: 450px) {
-      width: 20%;
-      margin-right: 25%;
+    .levels {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 92%;
+      width: 250px;
+      white-space: nowrap;
+      border-radius: 10px 0 0 10px;
+      border: 2px solid colors.$blue;
+      background: colors.$blue-darkest;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 14px;
+      color: colors.$blue;
+      cursor: pointer;
+
+      @media screen and (max-width: 550px) {
+        width: 50px;
+        background: url('/resources/images/burger-button.png') no-repeat;
+        background-position: center center;
+        background-size: 90%;
+        color: transparent;
+      }
+
+      &:hover {
+        color: colors.$blue-light;
+        border: 2px solid colors.$blue-light;
+        @media screen and (max-width: 550px) {
+          color: transparent;
+        }
+      }
     }
 
     .about {
       height: 92%;
-      width:  50px;
+      width: 20px;
+      padding: 0 15px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -95,10 +123,6 @@
       font-size: 20px;
       color: colors.$blue;
       cursor: help;
-
-      @media screen and (max-width: 450px) {
-        padding: 0 12px;
-      }
     }
 
     .about:hover {
@@ -108,7 +132,8 @@
 
     .sound {
       height: 92%;
-      width:  50px;
+      width: 50px;
+      min-width: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -127,91 +152,76 @@
 
       @media screen and (max-width: 850px) {
         width: 20%;
-        padding: 0 20%;
-        margin-right: 20%;
-        right: 20px;
+      }
+
+      &:hover {
+        color: colors.$blue-light;
+        border: 2px solid colors.$blue-light;
       }
     }
 
-    .sound:hover {
-      color: colors.$blue-light;
-      border: 2px solid colors.$blue-light;
-    }
-
-    .level-select-container {
-      padding: 5% 10% 5% 10%;
-    }
-
-    .skylight-dialog::-webkit-scrollbar-track {
-      border-radius: 10px;
-      background-color: rgba(0,0,0,0.0);
-    }
-
-    .skylight-dialog::-webkit-scrollbar {
-      width: 12px;
-      background-color: rgba(0,0,0,0.0);
-    }
-
-    .skylight-dialog::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background-color: colors.$blue-darkest;
-
-    }
-
-
-
-    .about-backstory {
+    .about-backstory, .modal-heading {
       text-align: center; 
       font-family: 'Space Mono', monospace;
+    }
+    .about-backstory {
+      padding: 15px 30px 10px 30px;
     }
     .modal-heading {
       font-size: 30px;
       @media screen and (max-width: 850px) {
         font-size: 22px;
       }
-
+    }
+    .modal-heading:first-child {
+      margin-top: 0.2em;
     }
 
-    .level-select{
+    .level-select-container {
+      padding: 5% 10% 5% 10%;
+    }
+
+    .level-select {
       display: flex;
       justify-content: center;
       align-items: center;
       align-content: center; 
-      height: 10%;
       width:  100%;
+      height: 10%;
+      margin: 0 auto;
+      margin-top: 10px;
+      white-space: nowrap;
       border-radius: 10px;
       border: 2px solid colors.$blue;
       background: colors.$blue-darkest;
       font-size: 20px;
       color: colors.$blue;
       cursor: pointer;
-      margin-top: 10px;
 
       @media screen and (max-width: 850px) {
-        width: 80%;
-        height: 15%;
+        width: 65%;
+        height: 12%;
         padding: 0 20%;
         right: 20px;
       }
+      &:hover {
+        color: colors.$blue-light;
+        border: 2px solid colors.$blue-light;
+      }
     }
 
-    .level-select:hover {
-      color: colors.$blue-light;
-      border: 2px solid colors.$blue-light;
-    }
 
     .modal-button-container {
       width: 100%;
-      display:flex;
+      display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: center;
       align-content: center;
       align-items: center;
-      margin-bottom: 10px;
 
       .modal-button {
-        margin: 10px;
+        margin: 0 10px;
         height: 80%;
         width: 150px;
         min-width: 45px;
@@ -225,7 +235,7 @@
         cursor: default;
 
         @media screen and (max-width: 850px) {
-          margin: 8px;
+          margin: 0 8px;
           height: 42px;
           min-width: 27px;
         }
@@ -269,55 +279,34 @@
     } 
 
   }
-
-
-  .levels {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 92%;
-    width: 250px;
-    border-radius: 10px 0 0 10px;
-    border: 2px solid colors.$blue;
-    background: colors.$blue-darkest;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
-    color: colors.$blue;
-    padding-left: 40px;
-    cursor: pointer;
-
-    @media screen and (max-width: 450px) {
-      width: 10%;
-      background: url('/resources/images/burger-button.png') no-repeat;
-      background-position: center center;
-      background-size: 90%;
-      color: transparent;
-    }
-  }
-
-  .levels:hover {
-    color: colors.$blue-light;
-    border: 2px solid colors.$blue-light;
-    @media screen and (max-width: 450px) {
-      color: transparent;
-    }
-
-    
-  }
-
-  .level-option{
-    background: colors.$blue-darkest;
-    color: colors.$blue;
-  }
-
-  select {
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
-  }
 }
 
-/* Level picker dialog must be above robot */
 .skylight-wrapper {
+  /* Level picker dialog must be above robot */
   z-index: zindex.$z-modal;
+
+  /* Hide empty h2 element */
+  h2 {
+    display: none;
+  }
+}
+.skylight-dialog {
+  /* Must use important to override Skylight's default inline styling */
+  background-color: #00897B !important;
+  color: #ffffff !important;
+  border-radius: 2%;
+  overflow-y: auto !important;
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.0);
+  }
+  &::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgba(0,0,0,0.0);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: colors.$blue-darkest;
+  }
 }
