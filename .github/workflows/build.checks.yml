@@ -1,0 +1,35 @@
+name: Ensure build command works
+
+on:
+  # Runs on pull requests targeting the default branch
+  #   but not when the only changes are docs and README.md files
+  pull_request:
+    branches: ["main"]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+
+jobs:
+  build-webpage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    name: Build static webpage
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Build the static assets
+      - name: Build
+        run: npm ci --legacy-peer-deps && npm run build
+        working-directory: ./
+
+      # Upload ./webpage as artifact
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: webpage/** # the only required field
+          name: built-webpage
+          if-no-files-found: error
+          compression-level: 0 # skip compression to save time
