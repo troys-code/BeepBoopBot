@@ -6,13 +6,23 @@
     "node": ">= 22"
   },
   "scripts": {
-    "start": "NODE_ENV=development vite",
-    "build": "npm run build:styles && vite build",
+    "start": "npm-run-all clean --parallel dev watch:styles watch:js",
+    "dev": "vite --mode development ./webpage/",
+    "build": "npm-run-all build:styles build:js",
+    "clean": "rm -rf ./webpage/",
+    "prebuild:styles": "mkdir -p ./webpage",
     "build:styles": "sass --load-path scss client/scss/main.scss public/resources/styles/style.css",
+    "postbuild:styles": "mkdir -p webpage/resources/styles && cp -f public/resources/styles/style.css webpage/resources/styles/style.css",
     "watch:styles": "nodemon -e scss -x \"npm run build:styles\"",
+    "build:js": "vite build #also copies files public->webpage",
+    "watch:js": "nodemon -e js -e jsx -x \"NODE_ENV=development npm run build:js\"",
     "lint": "npx standard ./client",
     "lint:fix": "npx standard --fix ./client",
     "test": "babel-tape-runner client/test/*.js | tap-spec"
+  },
+  "nodemonConfig": {
+    "ignore": ["webpage/**"],
+    "delay": 2500
   },
   "license": "MIT",
   "dependencies": {
@@ -34,6 +44,7 @@
     "babel-tape-runner": "^2.0.1",
     "deep-freeze": "0.0.1",
     "nodemon": "^3.1.11",
+    "npm-run-all": "^4.1.5",
     "redux-logger": "^2.6.1",
     "sass-embedded": "^1.87.0",
     "tap-spec": "^4.1.1",
