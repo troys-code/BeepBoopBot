@@ -3,6 +3,7 @@ node_modules
 
 # Bundle
 public/bundle.js
+public/bundle.js.*
 
 # Compiled CSS file
 public/resources/styles/style.css
